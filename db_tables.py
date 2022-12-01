@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-
-
-
-
 db.define_table(
     "contacts",
     Field("first_name", notnull = True),

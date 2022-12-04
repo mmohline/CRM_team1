@@ -1,57 +1,67 @@
 # -*- coding: utf-8 -*-
-db.define_table(
-    "contacts",
-    Field("first_name"),
-    Field("last_name"),
-    Field("company_name"),
-    Field("address"),
-    Field("city"),
-    Field("state_name"),
-    Field("zip"),
-    Field("phone1"),
-    Field("phone2"),
-    Field("email", requires=IS_EMAIL()),
-    )
-
-
-#did this commit
-
-db.define_table("companines",
-                Field("name"),
-                Field("address"),
-                Field("date_time")
+db.define_table("contacts",
+                Field("first_name", notnull = True),
+                Field("last_name", notnull = True),
+                Field("company", notnull = True),
+                Field("address"), # company address
+                Field("city"),
+                Field("state_name"),
+                Field("zip"),
+                Field("phone1", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
+                Field("phone2", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
+                Field("email", requires=IS_EMAIL()),
+                Field("date_created"),
+                Field("office_location"),
+                Field("office_phone"),
+                Field("office_email"),
+                Field("contact_type")
                 )
 
-db.define_table("lead_source",
-                Field("web"),
-                Field("walk_in"),
-                Field("on_call"),
-                Field("mail"),
-                Field("email", requires=IS_EMAIL())
-                )
+
 
 db.define_table("locations",
                 Field("address"),
-                Field("company_name"),
-                Field("main_phone"),
-                Field("sic_number"),
-                Field("state_abbv"),
-                Field("city")
+                Field("company", "reference contacts"),
+                Field("city", "reference contacts")
                 )
+
+
+
+db.define_table("companies",
+                Field("company", "reference contacts"),
+                Field("address", "reference locations"),
+                Field("date_created", requires=IS_DATE("%d/%m/%Y"))
+                )
+
+db.define_table("game_types",
+                Field("game_type")
+                )
+
+
+db.define_table("games",
+                Field("game_name"),
+                Field("game_type", "reference game_types")
+                )
+
 db.define_table("activities",
-                Field("direct_sale"),
-                Field("advertiser"),
-                Field("third_party"),
-                Field("event_handler")
+                Field("activty")
+                )
+
+db.define_table("lead_source",
+                Field("lead_source")
                 )
 
 db.define_table("lifecycle",
-                Field("last_contacted")
+                Field("date_created", "reference contacts"),
+                Field("lead_source", "reference lead_source"),
+                Field("game_name", "reference games"), #so we know what games they are into
+                Field("next_update"), #not sure about this field the table bassically gives us this info from the data the date_created,lead_source and game_name
+                Field("game_bought", "reference games"),
+                Field("game_type", "reference game_types")
                 )
 
 db.define_table("active_sales",
                 Field("last_sale_date"),
-                Field("location_of_sale"),
-                Field("first_name"),
-                Field("email", requires=IS_EMAIL())
+                Field("location_of_sale", "reference locations"),
+                Field("first_name", "reference contacts")
                 )

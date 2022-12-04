@@ -22,7 +22,8 @@ db.define_table("contacts",
 db.define_table("locations",
                 Field("address"),
                 Field("company", "reference contacts"),
-                Field("city", "reference contacts")
+                Field("city", "reference contacts"),
+                Field("state_name", "reference contacts")
                 )
 
 

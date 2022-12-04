@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# tables ready to use
 db.define_table("contacts",
                 Field("first_name", notnull = True),
                 Field("last_name", notnull = True),

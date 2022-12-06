@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # tables ready to use
 db.define_table("contacts",
-                Field("first_name", notnull = True),
-                Field("last_name", notnull = True),
-                Field("company", notnull = True),
+                Field("first_name"),
+                Field("last_name"),
+                Field("company"),
                 Field("address"), # company address
                 Field("city"),
                 Field("state_name"),

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# tables ready to use
+# tables ready to usee
 db.define_table("contacts",
                 Field("first_name"),
                 Field("last_name"),

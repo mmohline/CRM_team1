@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# tables ready to usee
+# tables ready to use
 db.define_table("contacts",
                 Field("first_name"),
                 Field("last_name"),
@@ -8,7 +8,7 @@ db.define_table("contacts",
                 Field("city"),
                 Field("state_name"),
                 Field("zip"),
-                Field("phone", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
+                Field("phone1", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
                 Field("email", requires=IS_EMAIL()),
                 Field("date_created"),
                 Field("office_location"),

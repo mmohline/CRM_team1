@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 # tables ready to use
+db.define_table("contact_type",
+                 Field("contact"),
+                 format = "%(contact)s"
+                 )
+
 db.define_table("contacts",
                 Field("first_name"),
                 Field("last_name"),
@@ -8,13 +13,13 @@ db.define_table("contacts",
                 Field("city"),
                 Field("state_name"),
                 Field("zip"),
-                Field("phone1", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
+                Field("phone", requires = IS_EMPTY_OR(IS_MATCH('[\d\-\(\) ]+'))),
                 Field("email", requires=IS_EMAIL()),
                 Field("date_created"),
                 Field("office_location"),
                 Field("office_phone"),
                 Field("office_email"),
-                Field("contact_type")
+                Field("contact", "reference contact_type")
                 )
 
 
@@ -48,15 +53,11 @@ db.define_table("activities",
                 Field("activty")
                 )
 
-db.define_table("lead_source",
-                Field("lead_source")
-                )
 
 db.define_table("lifecycle",
                 Field("date_created", "reference contacts"),
-                Field("lead_source", "reference lead_source"),
                 Field("game_name", "reference games"), #so we know what games they are into
-                Field("next_update"), #not sure about this field the table bassically gives us this info from the data the date_created,lead_source and game_name
+                Field("how_to_contact"), #not sure about this field the table bassically gives us this info from the data the date_created,lead_source and game_name
                 Field("game_bought", "reference games"),
                 Field("game_type", "reference game_types")
                 )

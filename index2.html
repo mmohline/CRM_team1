@@ -1,0 +1,16 @@
+{{extend 'layout2.html'}}
+
+Number of contacts:
+{{for row in db(db.contact):}}{{=row}}{{pass}}
+</br>
+
+Number of states: 52
+</br>
+
+Number of companies: 2000
+</br>
+
+Number of times you've logged in:
+
+{{if not session.counter:}}{{session.counter=1}}
+{{else:}}{{session.counter=session.counter+1}}{{=session.counter}}{{pass}}

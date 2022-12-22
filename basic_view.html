@@ -1,0 +1,219 @@
+{{extend 'layout.html'}}
+
+
+    <div class="row">
+        <div class="col">
+            <h1 class="center bg-dark text-warning">
+                Find our contact information below: 
+            </h1>
+        </div>
+    </div> 
+    <p>
+        {{ = A('Go To Contacts List', _href = URL('contacts'))}}
+    </p>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+{{extend 'layout.html'}}
+
+
+    <div class="row">
+        <div class="col">
+            <h1 class="center bg-dark text-warning">
+                Welcome to GAME PAGE
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    <h2>
+                        New Releases  <br />
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-dark">
+                    <h2>
+                        contact information<br />
+                      <br />
+                      <br />
+                      <br />
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                   <h2>
+                        sign up form or link<br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 bg-light">
+         <title>Forms</title>
+
+<body>
+    <h2 style = "text-align: center"> Forms </h2> 
+	    <h3 id="error" class="redtext"></h3>
+			<form action="https://waynedog.net/formreader.php" method="post" id="myForm" > 
+				<table class= "center" class = "th"> 
+					<tr>
+						<td><label id = "fnameLabel">First name</label></td> 
+						    <td> <input type="text" id="fname" name="fname" placeholder= "first name"><td/>
+							
+						<td><label id = "lnameLabel">Last name</label></td> 
+						    <td> <input type="text" id="lname" name="lname" placeholder= "last name"> </td>
+					</tr>
+					
+					<tr>
+						<td><label id = "address1Label">Address</label> </td> 
+						    <td> <input type="text" id="address1" name="address1" placeholder= "address"> </label> <td/>
+						
+						<td><label id = "address2Label">Suite or Apt</label></td> 
+						    <td> <input type="text" id="address2" name="address2" placeholder= "suite or apt"> <td/>
+						
+					</tr>
+					
+					<tr>
+						<td><label id = "cityLabel">City</label> </td> 
+						    <td> <input type="" id="city" name="city" placeholder= "city"> <td/>
+							
+						<td><label id = "stateLabel">State</label></td>
+						    <td><select type="select"id="state" name="state">
+						      <option value= ""> Pick one </option>
+						      <option value="AL">Alabama</option>
+						      <option value="AK">Alaska</option>
+							  <option value="AZ">Arizona</option>
+							  <option value="AR">Arkansas</option>
+							  <option value="CA">California</option>
+							  <option value="CO">Colorado</option>
+							  <option value="CT">Connecticut</option>
+							  <option value="DE">Delaware</option>
+							  <option value="DC">Dist of Columbia</option>
+							  <option value="FL">Florida</option>
+							  <option value="GA">Georgia</option>
+							  <option value="HI">Hawaii</option>
+							  <option value="ID">Idaho</option>
+							  <option value="IL">Illinois</option>
+							  <option value="IN">Indiana</option>
+							  <option value="IA">Iowa</option>
+							  <option value="KS">Kansas</option>
+							  <option value="KY">Kentucky</option>
+							  <option value="LA">Louisiana</option>
+							  <option value="ME">Maine</option>
+							  <option value="MD">Maryland</option>
+							  <option value="MA">Massachusetts</option>
+							  <option value="MI">Michigan</option>
+							  <option value="MN">Minnesota</option>
+							  <option value="MS">Mississippi</option>
+							  <option value="MO">Missouri</option>
+							  <option value="MT">Montana</option>
+							  <option value="NE">Nebraska</option>
+							  <option value="NV">Nevada</option>
+							  <option value="NH">New Hampshire</option>
+							  <option value="NJ">New Jersey</option>
+							  <option value="NM">New Mexico</option>
+							  <option value="NY">New York</option>
+							  <option value="NC">North Carolina</option>
+							  <option value="ND">North Dakota</option>
+							  <option value="OH">Ohio</option>
+							  <option value="OK">Oklahoma</option>
+							  <option value="OR">Oregon</option>
+							  <option value="PA">Pennsylvania</option>
+							  <option value="RI">Rhode Island</option>
+							  <option value="SC">South Carolina</option>
+							  <option value="SD">South Dakota</option>
+							  <option value="TN">Tennessee</option>
+							  <option value="TX">Texas</option>
+							  <option value="UT">Utah</option>
+							  <option value="VT">Vermont</option>
+							  <option value="VA">Virginia</option>
+							  <option value="WA">Washington</option>
+							  <option value="WV">West Virginia</option>
+							  <option value="WI">Wisconsin</option>
+							  <option value="WY">Wyoming</option>
+						      </select>
+						</td>	
+					</tr>
+					
+					<tr>
+						<td><label id = "zipcodeLabel">Zip Code</label> </td> 
+						<td> <input type="text" id="zipcode" name="zipcode" placeholder= "zipcode"> <td/>	
+					</tr>
+						
+					<tr>
+					    <td><label id = "genderLabel"> Gender</label> </td> 
+						    <td> <input type= "radio" name="gender"  id= "male" value = "male"  > Male <br>
+					             <input type= "radio" name="gender"  id= "female" value = "female"  > Female<td/> 
+						
+					    <td><label id = "dobLabel">Birthday</label> </td> 
+						    <td> <input type="date" id="dob" name="dob" placeholder= "Date of birth"> <td/>
+					</tr>
+					
+					<tr>
+					    <td> <label id = "mstatusLabel"> Marital Status</label></td>
+					        <td><select id="mstatus" name="mstatus" onchange= "mstatusChange()">
+						        <option value = ""> </option>
+							    <option value = "S">Single </option>
+							    <option value = "M">Married </option>
+							    </select>
+						    </td>
+							
+							<td></td>
+						
+						<td> <label id="snameLabel"> Spouse Name </label> </td> 
+					        <td> <input type = "text" id="sname" disabled></td> 	
+					</tr>	
+					 
+					<tr>
+					    <td><label id = "emailLabel">Email</label> </td> 
+					        <td> <input type="email"id="email" name="email" placeholder= "email"> <td/>
+							
+					    <td><label id = "phoneLabel">Phone </label></td> 
+					        <td> <input type= "text"id="phone" name="phone" placeholder= "phone"> <td/>	
+					</tr>
+					
+					<tr>
+					
+					   <td><label id = "passwordLabel">Password </label></td> 
+					       <td> <input type= "password"id="password" name="password" placeholder= "password"> <td/>	
+					   
+					   <td><label id = "password2Label">Password </label></td> 
+					       <td> <input type= "password"id="password2" name="password2" placeholder= "password"> <td/>
+					
+					</tr>
+					
+					<tr>
+						<td colspan="5" > <button id="button" type="button" onclick="processForm()"> Submit</button>
+					</tr>
+					
+					
+				</table>	
+			</form>
+			
+			
+</body>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col -6">
+            <h1 class="center bg-dark text-warning">
+                here 
+            </h1>
+        </div>
+    </div>
+    
+</body>
+</html>

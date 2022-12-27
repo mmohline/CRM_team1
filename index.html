@@ -1,0 +1,113 @@
+{{extend 'layout.html'}}
+<head>
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          selectable: true,
+
+            select: function(start, end){
+                var title = prompt("Event Description:");
+                var eventData;
+                if (title) {
+                    eventData= {
+                        title: title,
+                        start: start,
+                        end: end
+                    };
+                          $("#calendar").FullCalendar("renderEvent", eventData, true)
+                }
+                $("#calendar").FullCalendar("unselect");
+            }
+        });
+            calendar.render();
+        });
+
+
+    </script>
+
+
+
+</head>
+
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+  <div class="container center">
+
+    <h1 class="display-5">TTK GAMES</h1>
+  </div>
+</div>
+{{end}}
+
+{{extend 'layout.html'}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="center bg-dark text-warning">
+                TTK GAMES
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    <h1>
+                        Welcome,<br />
+                        {{if auth.user:}}{{=auth.user.first_name}}{{else:}}LOGIN{{pass}}<br />
+                    </h1>
+
+                    <p>
+
+
+        <h2 id="datetime"></h2>
+                    <br>
+                    <br>
+                    <br>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+                    </script>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>
+                        {{=A('Contacts', _href ='http://127.0.0.1:8000/TTK/contacts/view')}}<br />
+
+                    </h2>
+                    <p>
+                         {{ =A('Add a contact', _href ="http://127.0.0.1:8000/TTK/contacts/add")}}
+                        <br>
+                        {{ =A('Update a contact', _href = "http://127.0.0.1:8000/TTK/contacts/update")}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                   <h2>
+                        {{ =A('Marketing/Popular Games', _href = URL('graph'))}}<br />
+
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <body>
+                <div id="calendar"></div>
+            </body>
+
+
+        </div>
+    </div>
+</div>

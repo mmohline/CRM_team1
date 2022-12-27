@@ -1,0 +1,253 @@
+{{extend 'layout.html'}}
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <title>My Chart</title>
+
+</head>
+<body>
+    <h2>
+        Hello World
+    </h2>
+        <div class="chart-container" style="position: relative; height:30vh; width:30vw">
+            <canvas id="myChart"></canvas>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center><h2>
+        data num 2
+    </h2>
+    <div class="chart-container" style="position: relative; height:30vh; width:30vw">
+        <canvas id="myChart2"></canvas>
+
+    </div>
+        </center>
+
+    <h2>
+        data3
+    </h2>
+    <div class="chart-container" style="position: relative; height:30vh; width:30vw">
+        <canvas id="myChart3"></canvas>
+
+    </div>
+    <span id="graph_data">
+        {{cod = db(db.contacts.game == "7").count()}}
+        {{cs = db(db.contacts.game == "8").count()}}
+        {{game3 = db(db.contacts.game == "9").count()}}
+        
+    </span>
+
+    <script>
+
+        var myChart = document.getElementById("myChart").getContext("2d");
+
+        //Global Options
+        Chart.defaults.font.family = "Georgia";
+        Chart.defaults.font.size = 10;
+        Chart.defaults.font.color = "#777";
+
+        var graph_data = document.getElementById("graph_data").innerHTML;
+
+
+        var massPopChart = new Chart(myChart, {
+            type: "pie",
+            data:{
+                labels:["call of duty", "valorant", "csgo"],
+                datasets:[{
+                    label: "Game bought",
+                    data: [{{=cod}},
+                          {{=cs}},
+                          {{=game3}}],
+                    //backgroundColor:"green"
+                    backgroundColor:[
+                        "rgba(255,99,132,0.6)",
+                        "rgba(54,162,235,0.6)",
+                        "rgba(255,206,86,0.6)",
+                        "rgba(75,192,192,0.6)",
+                        "rgba(153 ,102,255,0.6)",
+                        "rgba(255,159,64,0.6)",
+                        "rgba(255,99,132,0.6)"
+
+                    ],
+                    borderWidth:1,
+                    borderColor:"#777",
+                    hoverBorderWidth: 3,
+                    hoverBorderColor:"#000",
+
+                }]
+            },
+            options:{
+                plugins: {
+                    title:{
+                        display: true,
+                        text:"Games Bought",
+                        font:{
+                            size: 25,
+                            weight: "bold",
+                            style: "italic"
+                        }
+                    },
+                    legend:{
+
+                        labels:{
+                            fontColor:"#000"
+                        }
+                    },
+                    layout:{
+                        padding: {
+                            left:50,
+                            right:0,
+                            top:0,
+                            bottom:0
+                        }
+                    }
+                },
+                tooltips:{
+                    enabled:true
+                }
+            }
+        });
+    </script>
+    <script>
+
+        var myChart = document.getElementById("myChart2").getContext("2d");
+
+        //Global Options
+        Chart.defaults.font.family = "Georgia";
+        Chart.defaults.font.size = 10;
+        Chart.defaults.font.color = "#777";
+
+
+        var massPopChart = new Chart(myChart, {
+            type: "bar",
+            data:{
+                labels:["call of duty", "valorant", "csgo"],
+                datasets:[{
+                    label: "Game bought",
+                    data: [ 3,
+                          1,
+                          2],
+                    //backgroundColor:"green"
+                    backgroundColor:[
+                        "rgba(255,99,132,0.6)",
+                        "rgba(54,162,235,0.6)",
+                        "rgba(255,206,86,0.6)",
+                        "rgba(75,192,192,0.6)",
+                        "rgba(153 ,102,255,0.6)",
+                        "rgba(255,159,64,0.6)",
+                        "rgba(255,99,132,0.6)"
+
+                    ],
+                    borderWidth:1,
+                    borderColor:"#777",
+                    hoverBorderWidth: 3,
+                    hoverBorderColor:"#000",
+
+                }]
+            },
+            options:{
+                plugins: {
+                    title:{
+                        display: true,
+                        text:"Games Bought",
+                        font:{
+                            size: 25,
+                            weight: "bold",
+                            style: "italic"
+                        }
+                    },
+                    legend:{
+
+                        labels:{
+                            fontColor:"#000"
+                        }
+                    },
+                    layout:{
+                        padding: {
+                            left:50,
+                            right:0,
+                            top:0,
+                            bottom:0
+                        }
+                    }
+                },
+                tooltips:{
+                    enabled:true
+                }
+            }
+        });
+    </script>
+    <script>
+
+        var myChart = document.getElementById("myChart3").getContext("2d");
+
+        //Global Options
+        Chart.defaults.font.family = "Georgia";
+        Chart.defaults.font.size = 10;
+        Chart.defaults.font.color = "#777";
+
+
+        var massPopChart = new Chart(myChart, {
+            type: "line",
+            data:{
+                labels:["call of duty", "valorant", "csgo"],
+                datasets:[{
+                    label: "Game bought",
+                    data: [ 3,
+                          1,
+                          2],
+                    //backgroundColor:"green"
+                    backgroundColor:[
+                        "rgba(255,99,132,0.6)",
+                        "rgba(54,162,235,0.6)",
+                        "rgba(255,206,86,0.6)",
+                        "rgba(75,192,192,0.6)",
+                        "rgba(153 ,102,255,0.6)",
+                        "rgba(255,159,64,0.6)",
+                        "rgba(255,99,132,0.6)"
+
+                    ],
+                    borderWidth:1,
+                    borderColor:"#777",
+                    hoverBorderWidth: 3,
+                    hoverBorderColor:"#000",
+
+                }]
+            },
+            options:{
+                plugins: {
+                    title:{
+                        display: true,
+                        text:"Games Bought",
+                        font:{
+                            size: 25,
+                            weight: "bold",
+                            style: "italic"
+                        }
+                    },
+                    legend:{
+
+                        labels:{
+                            fontColor:"#000"
+                        }
+                    },
+                    layout:{
+                        padding: {
+                            left:50,
+                            right:0,
+                            top:0,
+                            bottom:0
+                        }
+                    }
+                },
+                tooltips:{
+                    enabled:true
+                }
+            }
+        });
+    </script>
+</body>
+</html>

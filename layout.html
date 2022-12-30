@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{=T.accepted_language or 'en'}}"> <!--<![endif]-->
-<head>
+  <head>
     <script import interactionPlugin from '@fullcalendar/interaction';></script>
     <script src="script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -95,6 +96,63 @@
 
     <!-- Masthead ===================================== -->
     {{block header}}
+<style>
+body { background-color: #e0e0e0; }
+a { color: red; }
+.page-header h1 { color: #676767; }
+.page-header h2 { color: white; font-style: italic; font-size: 14px;}
+.statusbar { background: #333333; border-bottom: 5px #349C01 solid; }
+.statusbar a { color: pink; }
+.footer { border-top: 5px black solid;
+background-color: red;
+height: 100px;
+position: fixed;}
+#aboutus{
+    padding-left: 55px;
+    margin: 0;
+    font-weight: bold;
+    font-color: black;
+}
+#career{
+    font-weight: bold;
+    font-color: black;
+    padding-left: 95px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0;
+    position: relative;
+    top: -90px;
+
+
+}
+
+#careerList{
+    position: relative;
+    top: -90px;
+}
+
+input[type=submit]{
+        background-color: #e0e0e0;
+        color: black;
+        border-radius: 8px;
+        border-color: black;
+        padding: 3px 6px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-color: black;
+    }
+input{
+            border-radius: 8px;
+            border-color: black;
+            margin: 4px 2px;
+        }
+
+
+
+
+</style>
+
     {{end}}
     <!-- Main ========================================= -->
     <!-- Begin page content -->
@@ -104,17 +162,26 @@
     </div>
 
     {{block footer}} <!-- this is default footer -->
-    <footer class="footer container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="copyright pull-left">{{=T('Copyright')}} &#169; {{=request.now.year}}</div>
-          <div id="poweredBy" class="pull-right">
-            {{=T('Powered by')}}
-            <a href="http://www.web2py.com/">web2py</a>
-          </div>
+    <div class="footer container-fluid" >
+        <p id="aboutus">Contact Us</p>
+        <ul>
+            <li>Phone: 444-455-4455</li>
+            <li>Fax: 454545454</li>
+        </ul>
+        <div class="container">
+
+
+        <p id="career">Career</p>
+        <ul id="careerList">
+            <li>Resources & Opportunities</li>
+            <li>HR</li>
+            <li>FAQ</li>
+        </ul>
         </div>
-      </div>
-    </footer>
+
+
+
+    </div>
     {{end}}
     <!-- The javascript =============================== -->
     <script src="{{=URL('static','js/bootstrap.bundle.min.js')}}"></script>

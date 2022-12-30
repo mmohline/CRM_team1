@@ -1,36 +1,12 @@
 {{extend 'layout.html'}}
 <head>
-    <form action="{{=URL('/search_results')}}">
-  <input name="search_term" />
-  <input type="submit" />
-    </form>
-    <style>
-    input[type=submit]{
-        background-color: #d3d3d3;
-        color: black;
-        border-radius: 8px;
-        border-color: black;
-        padding: 3px 6px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-        font-color: black;
-    }
-        input{
-            border-radius: 8px;
-            border-color: black;
-            margin: 4px 2px;
-        }
-
-
-    </style>
 
 
 
 </head>
 
 
-<body style="background-color: #ffffff;">
+<body>
 
 
 
@@ -38,7 +14,7 @@
     <p style="opacity: 0.3">
         (Click contact name to update contact)
     </p></center>
-   
+
             |   <a href="/{{=request.application}}/{{=request.controller}}/view">All</a>
             |  <a href="/{{=request.application}}/{{=request.controller}}/add">Add</a>
 

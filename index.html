@@ -4,6 +4,7 @@
         var dt = new Date();
         document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.0.1/index.global.js"></script>
 
 
@@ -40,21 +41,82 @@
 
 
 {{block header}}
-<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
-  <div class="container center">
+<style>
+body { background-color: #e0e0e0; }
+a { color: red; }
 
-    <h1 class="display-5">TTK GAMES</h1>
-  </div>
-</div>
+.footer { border-top: 5px black solid;
+background-color: red;
+height: 100px;
+position: fixed;
+}
+
+
+#aboutus{
+    padding-left: 55px;
+    margin: 0;
+    font-weight: bold;
+    font-color: black;
+}
+#career{
+    font-weight: bold;
+    font-color: black;
+    padding-left: 95px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0;
+    position: relative;
+    top: -90px;
+
+
+}
+
+#careerList{
+    position: relative;
+    top: -90px;
+}
+
+hr{
+    border: solid;
+}
+
+   
+    input[type=submit]{
+        background-color: #e0e0e0;
+        color: black;
+        border-radius: 8px;
+        border-color: black;
+        padding: 3px 6px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-color: black;
+    }
+        input{
+            border-radius: 8px;
+            border-color: black;
+            margin: 4px 2px;
+        }
+
+
+
+
+</style>
+
+
+
 {{end}}
+     <h1 class="center  text-warning">
+                <center>
+      <img  src="{{=URL('static', 'images')}}/logo.jpg" alt="Aleq" width="50" height="50">
+    </center>
+            </h1>
 
-{{extend 'layout.html'}}
+<hr>
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="center bg-dark text-warning">
-                TTK GAMES
-            </h1>
+
         </div>
     </div>
     <div class="row">
@@ -89,7 +151,7 @@
                     <p>
                          {{ =A('Add a contact', _href ="http://127.0.0.1:8000/TTK/contacts/add")}}
                         <br>
-                        {{ =A('Update a contact', _href = "http://127.0.0.1:8000/TTK/contacts/update")}}
+
                     </p>
                 </div>
             </div>
@@ -106,8 +168,6 @@
             <body>
                 <div id="calendar"></div>
             </body>
-
-
         </div>
     </div>
 </div>

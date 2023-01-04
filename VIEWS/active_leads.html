@@ -1,0 +1,32 @@
+{{extend 'layout2.html'}}
+
+
+<div class="container-fluid">
+    <h3>Active Leads</h3>
+
+    <table class="table table-light table-hover table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Created Date</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+        {{for x in rows:}}
+        <tr>
+
+            <td>{{=x.firstName}}</td>
+            <td>{{=x.lastName}}</td>
+            <td>{{=x.leadStatus}}</td>
+            <td>{{=x.createdDate}}</td>
+        </tr>
+        </tbody>
+
+    {{pass}}
+    </table>
+</div>

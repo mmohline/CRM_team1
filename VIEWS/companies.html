@@ -1,0 +1,33 @@
+{{extend 'layout2.html'}}
+
+
+<div class="container">
+    <h5>Companies</h5>
+    <span class="searchbox">
+        <label class="icon" for="search">
+          <img alt="filter" id="search_start" src="/CRM_Project/static/images/search.png">
+        </label>
+    </span>
+    <table class="table table-hover table-light table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Company</th>
+
+            </tr>
+        </thead>
+
+
+        <tbody class="table-group-divider">
+        {{for x in rows:}}
+        <tr>
+            <td>{{=x.id}}</td>
+            <td>{{=x.name}}</td>
+
+        </tr>
+        </tbody>
+
+    {{pass}}
+    </table>
+    <a class="btn btn-outline-dark btn-sm" href="#" role="button">Back to Top</a>
+</div>

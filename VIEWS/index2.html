@@ -1,0 +1,115 @@
+{{extend 'layout2.html'}}
+
+<div class="container-xxl text-center">
+  <div class="row border border-sucess p02 rounded-pill">
+    <div class="col-md-4">
+      <h1>
+          Hi, {{=auth.user.first_name}}!
+      <span role="img" aria-label="Waving hand emoji">👋</span>
+        </h1>
+        <h5>
+            Most recent contact added:
+            <h6>{{=rows2}} {{=rows3}}</h6>
+        </h5>
+    </div>
+    <div class="col-md-4">
+        <p class="fs-3 fst-italic">
+            Try hitting this new lead up by email: {{=rows4}}
+        </p>
+
+         Give them a follow up call too at {{=rows5}}
+    </div>
+    <div class="col-md-4">
+        <p class="fs-3 font-monospace">
+          The last time you contacted this new lead was on: {{=rows6}}
+        </p>
+    </div>
+  </div>
+    </br>
+
+  <div class="row">
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Open Data Statistics
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                  <div class="accordion-body">
+                      <div class="row">
+                          <div class="col-sm-6 p-3">
+                             <div class="card">
+                                <div class="card-body">
+                                   <h5 class="card-title">{{=active_leads}} active leads in the pipeline</h5>
+                                    <span role="img" aria-label="Increase Arrow">⬆️ 20% increase</span>
+                                   <p class="card-text">Goal: {{=active_leads*2}} by end of month!</p>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 p-3">
+                             <div class="card">
+                                <div class="card-body">
+                                   <h5 class="card-title">{{=companies}} companies in database</h5>
+                                    <span role="img" aria-label="Increase Arrow">⬆️ 200% increase</span>
+                                   <p class="card-text">Goal: {{=companies+50}} by end of month!</p>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-sm-6 p-3">
+                            <div class="card">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{=rows}} contacts in database</h5>
+                                 <span role="img" aria-label="Increase Arrow">⬇️ 40% decrease</span>
+                                 <p class="card-text">There's room for improvement!</p>
+                               </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 p-3">
+                            <div class="card">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{=percentage_new_lead_count}}% of new leads</h5>
+                                 <span role="img" aria-label="Increase Arrow">📊</span>
+                                 <p class="card-text">Goal: Acquire {{=new_lead_count*3}} new leads by end of January!</p>
+                               </div>
+                            </div>
+                          </div>
+                     </div>
+                </div>
+             </div>
+
+  <div class="row">
+      <div class="col-md-2 border position-absolute bottom-0 end-0 bg-light text-dark">
+          <p class="fs-1">
+              {{=time}}
+          </p>
+          <p class="fs-4">
+             Page visits: {{if not session.counter:}}{{session.counter=0}}
+            {{else:}}{{session.counter=session.counter+1}}{{=session.counter}}{{pass}}
+          </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-2 position-absolute bottom-0 start-0">
+         <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Database Tables
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                  <div class="accordion-body">
+                        <a href="http://127.0.0.1:8000/CRM_Project/appadmin/select/db?query=db.states.id%3E0" target=_"blank">States</a><br/>
+                        <a href="http://127.0.0.1:8000/CRM_Project/appadmin/select/db?query=db.leadSource.id%3E0" target=_"blank">Lead Sources</a></br>
+                        <a href="http://127.0.0.1:8000/CRM_Project/appadmin/select/db?query=db.contactType.id%3E0" target=_"blank">Contact Types</a></br>
+                        <a href="http://127.0.0.1:8000/CRM_Project/appadmin/select/db?query=db.lifecycleStage.id%3E0" target=_"blank">Lifecycle Stage</a>
+                  </div>
+               </div>
+           </div>
+       </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+{{extend 'layout2.html'}}
+{{include 'web2py_ajax.html'}}
+<script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});</script>
+
+
+
+
+<div class="container-fluid">
+  <div class="web2py_grid">
+    <div class="web2py_console">
+        <h4>All Contacts</h4>
+        <a class="button btn btn-outline-dark btn-sm"
+           href="http://127.0.0.1:8000/CRM_Project/basics/post">
+          <span class="icon plus icon-plus glyphicon glyphicon-plus"></span>
+          <span class="buttontext button" data-toggle="tooltip" title="Add a Contact!" title="Add record to database">Add a New Contact</span>
+
+        </a>
+       <form action="/CRM_Project/basics/contact?_signature=318d8882a4c338a17e0856030fd01d25bd260f38" enctype="multipart/form-data" method="GET">
+        <input class="form-control" id="w2p_keywords" name="keywords"   onfocus="jQuery('#w2p_query_fields').change();jQuery('#w2p_query_panel').slideDown();" type="text" value="">
+        <input class="btn btn-outline-success" data-toggle="tooltip" title="Search!" type="submit" value="Search">
+        <input class="btn btn-outline-danger" onclick="jQuery('#w2p_keywords').val('');" type="submit" value="Clear">
+       </form>
+
+    <div class="spinner-border" style="width: 1rem; height: 1em;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <table class="table table-light table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Company</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Contact Type</th>
+                <th scope="col">Lifecycle Stage</th>
+                <th scope="col">Lead source</th>
+                <th scope="col">Status</th>
+                <th scope="col">Created Date</th>
+            </tr>
+        </thead>
+
+
+        <tbody class="table-group-divider">
+        {{for x in rows:}}
+        <tr>
+            <td>{{=x.id}}</td>
+            <td>{{=x.firstName}}</td>
+            <td>{{=x.lastName}}</td>
+            <td>{{=x.company}}</td>
+            <td>{{=x.email}}</td>
+            <td>{{=x.mobile}}</td>
+            <td>{{=x.address}}</td>
+            <td>{{=x.city}}</td>
+            <td>{{=x.states}}</td>
+            <td>{{=x.jobTitle}}</td>
+            <td>{{=x.contactType}}</td>
+            <td>{{=x.lifecycleStage}}</td>
+            <td>{{=x.leadSource}}</td>
+            <td>{{=x.leadStatus}}</td>
+            <td>{{=x.createdDate}}</td>
+        </tr>
+        </tbody>
+
+    {{pass}}
+    </table>
+
+  </div>
+   <a class="btn btn-outline-dark" href="#" role="button">Back to Top</a>
+</div>

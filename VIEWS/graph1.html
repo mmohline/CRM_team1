@@ -1,0 +1,115 @@
+{{extend 'layout2.html'}}
+<html>
+<script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});</script>
+<head>
+    <style>
+        .chartBox{
+            width: 300px;
+        }
+    </style>
+</head>
+
+<div class="container-fluid">
+    <input type="hidden" class="form-control" id="new_lead_count" value="{{=new_lead_count}}"  placeholder="">
+    <input type="hidden" class="form-control" id="opportunity_count" value="{{=opportunity_count}}" placeholder="">
+    <input type="hidden" class="form-control" id="currentcustomer_count" value="{{=currentcustomer_count}}" placeholder="">
+    <input type="hidden" class="form-control" id="competitor_count" value="{{=competitor_count}}" placeholder="">
+    <input type="hidden" class="form-control" id="social_media_lead" value="{{=social_media_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="web_lead" value="{{=web_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="callin_lead" value="{{=callin_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="coldcall_lead" value="{{=coldcall_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="website_lead" value="{{=website_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="referral_lead" value="{{=referral_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="searchengine_lead" value="{{=searchengine_lead}}" placeholder="">
+    <input type="hidden" class="form-control" id="event_lead" value="{{=event_lead}}" placeholder="">
+
+<button type="button" class="btn btn-outline-dark" data-toggle="tooltip" title="Click Me!" onclick="updateChart(); updateChart2()">Update Chart</button>
+
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
+    </div>
+
+<script>
+    const data = {
+
+    }
+  function updateChart(){
+        var xValues = ["New Lead", "Opportunity", "Current Customer", "Competitor"];
+
+        var new_lead_count = document.getElementById("new_lead_count").value;
+        var opportunity_count = document.getElementById("opportunity_count").value;
+        var currentcustomer_count = document.getElementById("currentcustomer_count").value;
+        var competitor_count = document.getElementById("competitor_count").value;
+
+        new Chart("myChart", {
+        type: 'bar',
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: xValues,
+            data: [new_lead_count,opportunity_count, currentcustomer_count, competitor_count],
+            backgroundColor: [
+                             'rgb(255,99,132)',
+                             'rgb(54, 162, 235)',
+                             'rgb(47,76,255)',
+                             'rgb(48,213,200)'
+                            ],
+              borderwidth: 20
+          }]
+        },
+        options: {
+          legend: {display: true,
+                   labels:{
+                       color: 'rgb(255,99,132)'
+                   }
+         },
+
+      }
+    })
+  }
+
+</script>
+<!--<button type="button" class="btn btn-outline-dark" onclick="updateChart2();">Update Chart2</button> don't need now with one button above-->
+<canvas id="myChart2" width="400" height="100" aria-label="canvas2"></canvas>
+<script>
+  function updateChart2(){
+        var xValues = ["Social Media", "Web", "Call In", "Cold Call", "Website", "Referral", "Search Engine", "Event"];
+
+        var social_media_lead = document.getElementById("social_media_lead").value;
+        var web_lead = document.getElementById("web_lead").value;
+        var callin_lead = document.getElementById("callin_lead").value;
+        var coldcall_lead = document.getElementById("coldcall_lead").value;
+        var website_lead = document.getElementById("website_lead").value;
+        var referral_lead = document.getElementById("referral_lead").value;
+        var searchengine_lead = document.getElementById("searchengine_lead").value;
+        var event_lead = document.getElementById("event_lead").value;
+
+        new Chart("myChart2", {
+        type: "pie",
+        data: {
+          labels: xValues,
+          datasets: [{
+            data: [social_media_lead, web_lead, callin_lead, website_lead, referral_lead, searchengine_lead, event_lead],
+            backgroundColor: ['rgb(255,99,132)',
+                             'rgb(54, 162, 235)',
+                             'rgb(47,76,255)',
+                             'rgb(48,213,200)',
+                             'rgb(0,222,255)',
+                             'rgb(6,119,55)',
+                             'rgb(9,37,219)',
+                             'rgb(219,135,9)'
+                             ],
+
+          }]
+        },
+        options: {
+          legend: {display: true, position:'top'}
+      },
+        })
+  }
+
+</script>
+
+</div>
+
+</html>
